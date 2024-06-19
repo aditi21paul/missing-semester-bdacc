@@ -1,9 +1,8 @@
 // Script: calculator.cpp
 // Implements a simple calculator
-// Hint: There are multiple issues with this implementation
 
 #include <iostream>
-
+#include <climits>
 using namespace std;
 
 int add(int a, int b) {
@@ -15,17 +14,12 @@ int subtract(int a, int b) {
 }
 
 int multiply(int a, int b) {
-    int result = 0;
-    for (int i = 0; i < b; i++) {
-        result += a;  // Hint: This is not an efficient way to multiply
-    }
-    return result;
+    return a*b;
 }
 
 int divide(int a, int b) {
     if (b == 0) {
-        cout << "Error: Division by zero" << endl;
-        return -1;  // Hint: Is returning -1 the best way to handle this error?
+        return INT_MAX;  
     }
     return a / b;
 }
@@ -59,7 +53,12 @@ int main() {
             return 1;
     }
 
-    cout << "Result: " << result << endl;  // Hint: What if the result is not valid?
+    if(result==INT_MAX){
+     cout << "Error: Division by zero" << endl;
+    }
+
+    else{
+     cout << "Result: " << result << endl;}  
 
     return 0;
 }
